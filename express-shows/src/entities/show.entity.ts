@@ -13,5 +13,5 @@ export class Show {
   band: Band;
 
   @Column()
-  availableSeatCount: number;
+  seats: number;
 }
