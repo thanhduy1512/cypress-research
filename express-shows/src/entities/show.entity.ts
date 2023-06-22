@@ -11,4 +11,7 @@ export class Show {
 
   @ManyToOne((type) => Band, (band) => band.shows)
   band: Band;
+
+  @Column()
+  availableSeatCount: number;
 }

@@ -1,9 +1,9 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import dotenv from 'dotenv';
-import { DataSource } from 'typeorm';
-import { User } from './src/entities/user.entity';
 import { AppDataSource } from './src/database/AppDataSource';
-import userRouter from './src/controllers/UserController';
+import userRouter from './src/routes/UserRoute';
+import bandRouter from './src/routes/BandRoute';
+import showRouter from './src/routes/ShowRoute';
 
 dotenv.config();
 
@@ -14,11 +14,12 @@ app.use(express.json());
 
 AppDataSource.initialize()
   .then(() => {
-    // here you can start to work with your database
     console.log('Connected');
   })
   .catch((error) => console.log(error));
 
 app.use('', userRouter);
+app.use('', bandRouter);
+app.use('', showRouter);
 
 app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));
