@@ -16,7 +16,7 @@ AppDataSource.initialize()
   .then(() => {
     console.log('Connected');
   })
-  .catch((error) => console.log(error));
+  .catch((error: any) => console.log(error));
 
 app.use('', userRouter);
 app.use('', bandRouter);
