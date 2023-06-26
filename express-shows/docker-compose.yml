@@ -8,9 +8,21 @@ services:
     restart: always
     environment:
       POSTGRES_DB: shows
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: 1234
     ports:
       - 5432:5432
+
+  db-test:
+    container_name: shows-db-test
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: shows-test
+      POSTGRES_USER: admin-test
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - 5433:5432
 
   adminer:
     image: adminer

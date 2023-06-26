@@ -1,7 +1,6 @@
 import express from 'express';
 import { User } from '../entities/user.entity';
 import { AppDataSource } from '../database/AppDataSource';
-import e from 'express';
 
 let userRouter = express();
 const userRepository = AppDataSource.getRepository(User);
@@ -11,10 +10,9 @@ userRouter.post('/user', async (req, res) => {
   user.username = 'dex';
   user.password = '1234';
 
-  const userFound = await userRepository.findBy({ username: 'dex' });
-  console.log(userFound);
+  // const userFound = await userRepository.findBy({ username: 'dex' });
 
-  //   await AppDataSource.manager.save(user);
+  await userRepository.save(user);
   return res.status(201).json(user);
 });
 

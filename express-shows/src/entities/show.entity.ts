@@ -9,7 +9,16 @@ export class Show {
   @Column({ unique: true })
   scheduledAt: Date;
 
-  @ManyToOne((type) => Band, (band) => band.shows)
+  @Column({ nullable: true })
+  bandId: number;
+
+  @ManyToOne(
+    (type) => Band,
+    (band) => {
+      band.shows;
+    },
+    { onDelete: 'CASCADE' }
+  )
   band: Band;
 
   @Column()

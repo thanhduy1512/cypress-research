@@ -17,3 +17,17 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
+export const TestDataSource = new DataSource({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5433,
+  username: 'admin-test',
+  password: '1234',
+  database: 'shows-test',
+  synchronize: true,
+  logging: true,
+  entities: [User, Show, Band, Reservation],
+  subscribers: [],
+  migrations: [],
+});
