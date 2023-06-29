@@ -1,0 +1,39 @@
+.showListItem{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.showListItem p{
+    width: 40px;
+    margin-right: 60px;
+}
+
+.showListItem button{
+    margin-right: 60px;
+    border-radius: 8px;
+    border: none;
+    width: 80px;
+    height: 40px;
+    background-color: #2D3748;
+    color: white;
+    font-weight: bold;
+}
+
+.showListItem button:hover{
+    background-color: #718096;
+    cursor: pointer;
+}
+
+.showListItem div{
+    display: flex;
+    flex-direction: column;
+}
+
+.showListItem div h3{
+    margin: 0;
+}
+
+.showListItem div p{
+    margin: 0;
+}
