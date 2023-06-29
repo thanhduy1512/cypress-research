@@ -5,7 +5,7 @@ import {
   getAllReservation,
   getReservationById,
   updateReservation,
-} from '../services/ReservationService';
+} from '../services/reservation.service';
 
 let reservationRouter = express();
 

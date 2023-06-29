@@ -5,7 +5,7 @@ import {
   getBandById,
   updateBand,
   deleteBand,
-} from '../services/BandService';
+} from '../services/band.service';
 
 let bandRouter = express();
 

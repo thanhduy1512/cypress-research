@@ -5,7 +5,7 @@ import {
   getAllShow,
   getShowById,
   updateShow,
-} from '../services/ShowService';
+} from '../services/show.service';
 
 let showRouter = express();
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createUser } from '../services/UserService';
+import { createUser } from '../services/user.service';
 
 let userRouter = express();
 

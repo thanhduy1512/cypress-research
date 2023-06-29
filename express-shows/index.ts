@@ -1,10 +1,10 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import { AppDataSource, TestDataSource } from './src/database/AppDataSource';
-import userRouter from './src/routes/UserRoute';
-import bandRouter from './src/routes/BandRoute';
-import showRouter from './src/routes/ShowRoute';
-import reservationRouter from './src/routes/ReservationRoute';
+import userRouter from './src/routes/user.route';
+import bandRouter from './src/routes/band.route';
+import showRouter from './src/routes/show.route';
+import reservationRouter from './src/routes/reservation.route';
 
 dotenv.config();
 
