@@ -14,18 +14,30 @@ const createUser = async (req: Request, res: Response) => {
   return res.status(201).json(user);
 };
 
-const getAllUser = async () => {};
-
-const getUserById = async () => {
-  // const userFound = await userRepository.findBy({ username: 'dex' });
+const getAllUser = async (req: Request, res: Response) => {
+  const users = await userRepository.find();
+  return res.status(200).json(users);
 };
 
-const updateUser = async () => {
-  // const userFound = await userRepository.findBy({ username: 'dex' });
+const getUserById = async (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+  const userFound = await userRepository.findOne({ where: { id } });
+  return res.status(200).json(userFound);
 };
 
-const deleteUser = async () => {
+const updateUser = async (req: Request, res: Response) => {
   // const userFound = await userRepository.findBy({ username: 'dex' });
+  const id = Number(req.params.id);
+  const userFound = await userRepository.findOne({ where: { id } });
+  //update user
+  return res.status(200).json(userFound);
+};
+
+const deleteUser = async (req: Request, res: Response) => {
+  // const userFound = await userRepository.findBy({ username: 'dex' });
+  const id = Number(req.params.id);
+  await userRepository.delete({ id });
+  return res.status(201).json();
 };
 
 export { createUser, getAllUser, getUserById, updateUser, deleteUser };
