@@ -6,12 +6,13 @@ import {
   getReservationById,
   updateReservation,
 } from '../services/reservation.service';
+import { verifyToken } from '../middlewares/verifyToken';
 
 let reservationRouter = express();
 
 reservationRouter.post('/reservation', createReservation);
 
-reservationRouter.get('/reservation', getAllReservation);
+reservationRouter.get('/reservation', verifyToken, getAllReservation);
 
 reservationRouter.get('/reservation/:id', getReservationById);
 
