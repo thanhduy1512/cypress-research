@@ -16,14 +16,14 @@ export class Reservation {
   @Column({ nullable: true })
   showId: number;
 
-  @OneToOne((type) => Show)
+  @OneToOne((type) => Show, { onDelete: 'CASCADE' })
   @JoinColumn()
   show: Show;
 
   @Column({ nullable: true })
   userId: number;
 
-  @OneToOne((type) => User)
+  @OneToOne((type) => User, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;
 
