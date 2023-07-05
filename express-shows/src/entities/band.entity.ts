@@ -12,6 +12,9 @@ export class Band {
   @Column()
   description: string;
 
-  @OneToMany((type) => Show, (show) => show.band)
+  @Column()
+  image: string;
+
+  @OneToMany((type) => Show, (show) => show.band, { onDelete: 'CASCADE' })
   shows: Show[];
 }

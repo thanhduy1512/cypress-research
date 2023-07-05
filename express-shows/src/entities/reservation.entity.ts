@@ -3,7 +3,7 @@ import {
   Column,
   PrimaryGeneratedColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
 import { Show } from './show.entity';
 import { User } from './user.entity';
@@ -16,14 +16,14 @@ export class Reservation {
   @Column({ nullable: true })
   showId: number;
 
-  @OneToOne((type) => Show, { onDelete: 'CASCADE' })
+  @ManyToOne((type) => Show, { onDelete: 'CASCADE' })
   @JoinColumn()
   show: Show;
 
   @Column({ nullable: true })
   userId: number;
 
-  @OneToOne((type) => User, { onDelete: 'CASCADE' })
+  @ManyToOne((type) => User, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;
 

@@ -6,6 +6,7 @@ import bandRouter from './src/routes/band.route';
 import showRouter from './src/routes/show.route';
 import reservationRouter from './src/routes/reservation.route';
 import authRouter from './src/routes/auth.route';
+import initRouter from './src/routes/initData';
 
 dotenv.config();
 
@@ -33,5 +34,6 @@ app.use('', bandRouter);
 app.use('', showRouter);
 app.use('', reservationRouter);
 app.use('', authRouter);
+app.use('', initRouter);
 
 app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));

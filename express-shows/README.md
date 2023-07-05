@@ -3,6 +3,7 @@ Intruct
 after change entity structure run:
 
 - npx typeorm-ts-node-commonjs migration:generate -d .\src\ormconfig.ts .\src\migrations\NewMigrate
+- npx typeorm-ts-node-commonjs migration:create -d .\src\ormconfig.ts .\src\migrations\NewMigrate
 
 to migrate the change run:
 
