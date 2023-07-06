@@ -2,16 +2,16 @@ import styles from '../styles/ShowsListItem.module.css';
 interface Props {
   date: string;
   band: string;
-  description: string;
+  availableSeatCount: number;
 }
-const ShowListItem = ({ date, band, description }: Props) => {
+const ShowListItem = ({ date, band, availableSeatCount }: Props) => {
   return (
     <div className={styles.showListItem}>
-      <p>{date}</p>
+      <p>{new Date(date).toUTCString()}</p>
       <button>Tickets</button>
       <div>
         <h3>{band}</h3>
-        <p>{description}</p>
+        <p>{availableSeatCount}</p>
       </div>
     </div>
   );
