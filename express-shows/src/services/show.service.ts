@@ -20,8 +20,11 @@ const createShow = async (req: Request, res: Response) => {
 };
 
 const getAllShow = async (req: Request, res: Response) => {
-  const reservations = await showRepository.find();
-  return res.status(200).json(reservations);
+  const shows = await showRepository.find({
+    relations: ['band'],
+  });
+
+  return res.status(200).json(shows);
 };
 const getShowById = async (req: Request, res: Response) => {
   const id = Number(req.params.id);

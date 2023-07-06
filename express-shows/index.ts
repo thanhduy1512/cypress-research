@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import { AppDataSource, TestDataSource } from './src/database/AppDataSource';
 import userRouter from './src/routes/user.route';
 import bandRouter from './src/routes/band.route';
@@ -13,6 +14,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app: Express = express();
 
+app.use(cors());
 app.use(express.json());
 
 if (process.env.APP_ENV === 'dev') {
