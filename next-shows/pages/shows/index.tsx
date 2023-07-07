@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from '../../styles/Shows.module.css';
+import styles from './Shows.module.css';
 import ShowListItem from '@/components/showListItem';
 
 interface Show {
