@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Shows.module.css';
 import ShowListItem from '@/components/showListItem';
 
-interface Show {
+export interface Show {
   id: number;
   scheduledAt: string;
   bandId: number;
@@ -34,6 +34,7 @@ const Shows = () => {
         {shows.map((show) => (
           <div key={show.id}>
             <ShowListItem
+              showId={show.id}
               date={show.scheduledAt}
               band={show.band.name}
               availableSeatCount={show.availableSeatCount}
