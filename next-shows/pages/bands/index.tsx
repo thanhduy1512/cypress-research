@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import styles from './Bands.module.css';
-import Link from 'next/link';
 import axios from 'axios';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import styles from './Bands.module.css';
 
 export interface Band {
   id: number;
@@ -11,29 +11,35 @@ export interface Band {
 }
 const Bands = () => {
   const [bands, setBands] = useState<Band[]>([]);
+  const [error, setError] = useState<string>('');
   const getShows = async () => {
     try {
       const { data } = await axios.get('http://localhost:5000/band');
       setBands(data);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      setError(error.message);
     }
   };
 
   useEffect(() => {
     getShows();
   }, []);
+
   return (
     <div className={styles.container}>
       <h1>Our Illustrious Performers</h1>
-      {bands.map((band) => (
-        <div className={styles.bandContainer} key={band.id}>
-          <Link href={`/bands/${band.id}`}>
-            <h2>{band.name}</h2>
-          </Link>
-          <p>{band.description}</p>
-        </div>
-      ))}
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        bands.map((band) => (
+          <div className={styles.bandContainer} key={band.id}>
+            <Link href={`/bands/${band.id}`}>
+              <h2>{band.name}</h2>
+            </Link>
+            <p>{band.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 };

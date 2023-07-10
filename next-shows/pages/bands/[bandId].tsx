@@ -40,6 +40,12 @@ interface Props {
   error: string;
 }
 const BandPage = ({ band, error }: Props) => {
+  if (error)
+    return (
+      <div className={styles.container}>
+        <h1>{error}</h1>
+      </div>
+    );
   return (
     <div className={styles.container}>
       <h1>{band.name}</h1>
