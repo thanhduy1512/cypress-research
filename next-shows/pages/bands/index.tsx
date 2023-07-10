@@ -1,67 +1,33 @@
-import { DragEvent, useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Bands.module.css';
+
+interface Band {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+}
 const Bands = () => {
-  const [items, setItems] = useState([
-    '🍰 Cake',
-    '🍩 Donut',
-    '🍎 Apple',
-    '🍕 Pizza',
-  ]);
-  const [draggedItem, setDraggedItem] = useState('');
-
-  const onDragStart = (e: any, index: number) => {
-    setDraggedItem(items[index]);
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', e.target.parentNode.parentNode);
-    e.dataTransfer.setDragImage(e.target.parentNode.parentNode, 20, 20);
+  const [bands, setBands] = useState<Band[]>([]);
+  const getShows = async () => {
+    fetch('http://localhost:5000/band')
+      .then((response) => response.text())
+      .then((result) => setBands(JSON.parse(result)))
+      .catch((error) => console.log('error', error));
   };
 
-  const onDragOver = (index: number) => {
-    const draggedOverItem = items[index];
-
-    // if the item is dragged over itself, ignore
-    if (draggedItem === draggedOverItem) {
-      return;
-    }
-
-    // filter out the currently dragged item
-    let newItems = items.filter((item) => item !== draggedItem);
-
-    // add the dragged item after the dragged over item
-    console.log(index);
-
-    newItems.splice(index, 0, draggedItem);
-
-    setItems(newItems);
-  };
-
-  const onDragEnd = () => {
-    // draggedIdx = null;
-  };
+  useEffect(() => {
+    getShows();
+  }, []);
   return (
     <div className={styles.container}>
-      <main className={styles.main} onDragOver={(e) => e.preventDefault()}>
-        <h3>List of items</h3>
-        <ul className={styles.ul}>
-          {items.map((item, index) => (
-            <li
-              className={styles.li}
-              key={item}
-              onDragOver={() => onDragOver(index)}
-            >
-              <div className="drag">
-                <img
-                  draggable
-                  onDragStart={(e) => onDragStart(e, index)}
-                  onDragEnd={onDragEnd}
-                  src={'./hamburger.png'}
-                />
-              </div>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </main>
+      <h1>Our Illustrious Performers</h1>
+      {bands.map((band) => (
+        <div className={styles.bandContainer} key={band.id}>
+          <h2>{band.name}</h2>
+          <p>{band.description}</p>
+        </div>
+      ))}
     </div>
   );
 };
