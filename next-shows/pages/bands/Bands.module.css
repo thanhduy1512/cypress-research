@@ -7,9 +7,22 @@
   background-color: #171923;
 }
 
+.container img {
+  width: 500px;
+  height: 500px;
+}
+
 .bandContainer {
   width: 500px;
   font-size: 16px;
+}
+
+.bandContainer a {
+  color: #ffffff;
+}
+
+.bandContainer a:hover {
+  text-decoration: underline;
 }
 
 .bandContainer p {

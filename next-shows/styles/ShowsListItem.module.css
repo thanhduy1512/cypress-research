@@ -1,15 +1,15 @@
-.showListItem{
+.showListItem {
     display: flex;
     align-items: center;
     margin-top: 40px;
 }
 
-.showListItem p{
-    width: auto;
-    margin-right: 60px;
+.showListItem p {
+    width: 250px;
+    margin-right: 30px;
 }
 
-.showListItem button{
+.showListItem button {
     margin-right: 60px;
     border-radius: 8px;
     border: none;
@@ -20,20 +20,20 @@
     font-weight: bold;
 }
 
-.showListItem button:hover{
+.showListItem button:hover {
     background-color: #718096;
     cursor: pointer;
 }
 
-.showListItem div{
+.showListItem div {
     display: flex;
     flex-direction: column;
 }
 
-.showListItem div h3{
+.showListItem div h3 {
     margin: 0;
 }
 
-.showListItem div p{
+.showListItem div p {
     margin: 0;
 }

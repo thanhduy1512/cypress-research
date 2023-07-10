@@ -5,7 +5,6 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 export default function Layout({ children }: LayoutProps) {
-  const onClickRoute = () => {};
   return (
     <>
       <div className={styles.container}>
@@ -16,13 +15,13 @@ export default function Layout({ children }: LayoutProps) {
             </Link>
           </div>
           <div className={styles.buttons}>
-            <Link href="shows">
+            <Link href="/shows">
               <button className={styles.button}>Shows</button>
             </Link>
-            <Link href="bands">
+            <Link href="/bands">
               <button className={styles.button}>Bands</button>
             </Link>
-            <Link href="signin">
+            <Link href="/signin">
               <button className={styles.button}>Signin</button>
             </Link>
           </div>

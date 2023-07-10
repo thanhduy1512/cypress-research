@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './Bands.module.css';
+import Link from 'next/link';
+import axios from 'axios';
 
-interface Band {
+export interface Band {
   id: number;
   name: string;
   description: string;
@@ -10,10 +12,12 @@ interface Band {
 const Bands = () => {
   const [bands, setBands] = useState<Band[]>([]);
   const getShows = async () => {
-    fetch('http://localhost:5000/band')
-      .then((response) => response.text())
-      .then((result) => setBands(JSON.parse(result)))
-      .catch((error) => console.log('error', error));
+    try {
+      const { data } = await axios.get('http://localhost:5000/band');
+      setBands(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -24,7 +28,9 @@ const Bands = () => {
       <h1>Our Illustrious Performers</h1>
       {bands.map((band) => (
         <div className={styles.bandContainer} key={band.id}>
-          <h2>{band.name}</h2>
+          <Link href={`/bands/${band.id}`}>
+            <h2>{band.name}</h2>
+          </Link>
           <p>{band.description}</p>
         </div>
       ))}
