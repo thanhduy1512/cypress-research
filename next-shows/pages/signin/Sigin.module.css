@@ -1,0 +1,53 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    position: relative;
+    background-color: #171923;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    margin-inline: auto;
+    margin-bottom: 100px;
+}
+
+.modalContainer {
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    padding: 32px 40px;
+    border-radius: 10px;
+}
+
+.modalContainer label {
+    margin-bottom: 8px;
+}
+
+.modalContainer input {
+    margin-bottom: 16px;
+    font-size: 28px;
+    border-radius: 10px;
+}
+
+.modalContainer button {
+    margin-top: 48px;
+    width: 80px;
+    font-size: 20px;
+    margin-left: auto;
+}
+
+
+.title {
+    color: white;
+}
